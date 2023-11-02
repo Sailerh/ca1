@@ -1,0 +1,35 @@
+{
+  "name": "web-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.4",
+    "next": "latest",
+    "next-auth": "^4.24.3",
+    "query-string": "^8.1.0",
+    "react": "latest",
+    "react-countdown": "^2.3.5",
+    "react-dom": "latest",
+    "react-icons": "^4.11.0",
+    "zustand": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@types/node": "latest",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
