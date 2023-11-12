@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 
 export default function Search() {
     const router = useRouter();
-    // const pathname = usePathname();
+    const pathname = usePathname();
     const setParams = useParamsStore(state => state.setParams);
     const [value, setValue] = useState('');
     const setSearchValue = useParamsStore(state => state.setSearchValue);
@@ -18,7 +18,7 @@ export default function Search() {
     }
 
     function search() {
-        // if (pathname !== '/') router.push('/');
+        if (pathname !== '/') router.push('/');
         setParams({searchTerm: searchValue});
     }
 

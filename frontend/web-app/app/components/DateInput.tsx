@@ -1,6 +1,8 @@
 import React from 'react'
 import { UseControllerProps, useController } from 'react-hook-form'
+import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import { Label, TextInput } from 'flowbite-react'
 
 type Props = {
     label: string
@@ -8,17 +10,30 @@ type Props = {
     showLabel?: boolean
 } & UseControllerProps & Partial<ReactDatePickerProps>
 
+
+
 export default function DateInput(props: Props) {
     const {fieldState, field} = useController({...props, defaultValue: ''})
 
+    var placeholderText = props.label;
+    if(props.showLabel)
+    {
+        placeholderText = "";
+    }    
+
     return (
         <div className='block'>
+            {props.showLabel && (
+                <div className='mb-2 block'>
+                    <Label htmlFor={field.name} value={props.label} />
+                </div>
+            )}
             <DatePicker
                     {...props}
                     {...field}
                     onChange={value => field.onChange(value)}
                     selected={field.value}
-                    placeholderText={props.label}
+                    placeholderText={placeholderText}
                     className={`
                         rounded-lg w-[100%] flex flex-col
                         ${fieldState.error 
@@ -33,3 +48,4 @@ export default function DateInput(props: Props) {
         </div>
     )
 }
+

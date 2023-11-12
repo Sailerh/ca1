@@ -11,6 +11,12 @@ type Props = {
 export default function Input(props: Props) {
     const {fieldState, field} = useController({...props, defaultValue: ''})
 
+    var placeholderText = props.label;
+    if(props.showLabel)
+    {
+        placeholderText = "";
+    }
+
     return (
         <div className='mb-3'>
             {props.showLabel && (
@@ -22,7 +28,7 @@ export default function Input(props: Props) {
                     {...props}
                     {...field}
                     type={props.type || 'text'}
-                    placeholder={props.label}
+                    placeholder={placeholderText}
                     color={fieldState.error ? 'failure' : !fieldState.isDirty ? '' : 'success'}
                     helperText={fieldState.error?.message}
                 />

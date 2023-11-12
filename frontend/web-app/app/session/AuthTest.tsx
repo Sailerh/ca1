@@ -9,6 +9,8 @@ export default function AuthTest() {
     const [result, setResult] = useState<any>();
 
     function doUpdate() {
+        console.log("doUpdate()");
+
         setResult(undefined);
         setLoading(true);
         updateAuctionTest()
