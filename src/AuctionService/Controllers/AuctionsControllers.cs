@@ -38,6 +38,8 @@ namespace AuctionService.Controllers
                     .OrderBy(x => x.Item.Make)
                     .ToListAsync();
 
+            
+
             return _mapper.Map<List<AuctionDto>>(auctions);
         }
 

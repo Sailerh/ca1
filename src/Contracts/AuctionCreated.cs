@@ -17,7 +17,7 @@ namespace Contracts
 
         public int SoldAmount  { get; set; }
 
-        public int CurrentHigBid  { get; set; }
+        public int CurrentHighBid  { get; set; }
 
         public DateTime CreatedAt { get; set; } 
         public DateTime UpdatedAt { get; set; }

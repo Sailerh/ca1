@@ -4,9 +4,10 @@ import { getTokenWorkaround } from "@/app/actions/authActions";
 const baseUrl = 'http://localhost:6001/';
 
 async function get(url: string) {
-    console.log("fetchWrapper GET");
-    console.log("fetchWrapper GET baseUrl="+ baseUrl);
-    console.log("fetchWrapper GET url="+ url);
+    // console.log("fetchWrapper GET");
+    // console.log("fetchWrapper GET baseUrl="+ baseUrl);
+    // console.log("fetchWrapper GET url="+ url);
+    console.log("fetchWrapper GET: " + baseUrl + url);
 
     const requestOptions = {
         method: 'GET',
@@ -14,6 +15,8 @@ async function get(url: string) {
     }
 
     const response = await fetch(baseUrl + url, requestOptions);
+    // console.log("respons:");
+    // console.log(response);
     return await handleResponse(response);
 }
 
@@ -87,7 +90,17 @@ async function getHeaders() {
 
 async function handleResponse(response: Response) {
     const text = await response.text();
-    const data = text && JSON.parse(text);
+    // const data = text && JSON.parse(text);
+
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch (error) {   
+        data = text;
+    }  
+
+    // console.log("text=[" + text + "]")
+    // console.log(data)
 
     // try {
     //     data = JSON.parse(text);

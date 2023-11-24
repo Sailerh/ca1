@@ -11,6 +11,9 @@ import { FieldValues } from "react-hook-form";
 
 
 export async function getData(query: string): Promise<PagedResult<Auction>> {
+
+    console.log("auctionAction: getData() query=" + query);
+
     return await fetchWrapper.get(`search/${query}`)
     // const res = await fetch(`http://localhost:6001/search/${query}`);
 

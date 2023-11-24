@@ -41,15 +41,16 @@ export default function BidList({ user, auction }: Props) {
             }).catch(err => {
                 toast.error(err.message);
             }).finally(() => setLoading(false))
-    }, [auction.id, setLoading, setBids])
+    }, [auction.id, setLoading, setBids])  // depentencies
 
     useEffect(() => {
         setOpen(openForBids);
-    }, [openForBids, setOpen]);
+    }, [openForBids, setOpen]);  // depentencies
 
     if (loading) return <span>Loading bids...</span>
 
     return (
+        <>
         <div className='rounded-lg shadow-md'>
             <div className='py-2 px-4 bg-white'>
                 <div className='sticky top-0 bg-white p-2'>
@@ -88,5 +89,6 @@ export default function BidList({ user, auction }: Props) {
                 )}
             </div>
         </div>
+        </>
     )
 }
